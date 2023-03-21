@@ -8,9 +8,15 @@ typedef struct Node {
     struct Node *prev;
 } Node;
 
-Node *new_node(int data) {
+Node *new_node(int value) {
     Node *node = (Node*) malloc(sizeof(Node));
-    node->value = data;
+
+    if (node == NULL) {
+        printf("Failed to allocate memory for node of value %i.\n", value);
+        exit(EXIT_FAILURE);
+    }
+
+    node->value = value;
     node->next = NULL;
     node->prev = NULL;
 
