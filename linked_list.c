@@ -72,3 +72,15 @@ void display_list(Node* head) {
 
     printf("]\n");
 }
+
+void destroy_head(Node* head) {
+    Node *current = head->next;
+
+    while (current != NULL) {
+        Node* next = current->next;
+        free(current);
+        current = next;
+    }
+
+    free(head);
+}

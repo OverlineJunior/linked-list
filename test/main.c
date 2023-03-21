@@ -8,4 +8,6 @@ int main(void) {
     push_node(head, 3);
 
     display_list(head);
+
+    destroy_head(head);
 }
