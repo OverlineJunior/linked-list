@@ -51,15 +51,24 @@ void pop_node(Node* head) {
 }
 
 void display_list(Node* head) {
-    if (head->next == NULL)
+    if (head->next == NULL) {
+        printf("[]\n");
         return;
-
+    }
+        
     Node* node = head->next;
 
+    printf("[");
+
     while (node != NULL) {
-        printf("%i ", node->value);
+        printf("%i", node->value);
+
         node = node->next;
+
+        if (node != NULL) {
+            printf(", ");
+        }
     }
 
-    printf("\n");
+    printf("]\n");
 }
