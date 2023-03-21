@@ -4,12 +4,12 @@
 
 typedef struct Node {
     int value;
-    struct Node *next;
-    struct Node *prev;
+    struct Node* next;
+    struct Node* prev;
 } Node;
 
-Node *new_node(int value) {
-    Node *node = (Node*) malloc(sizeof(Node));
+Node* new_node(int value) {
+    Node* node = (Node*) malloc(sizeof(Node));
 
     if (node == NULL) {
         printf("Failed to allocate memory for node of value %i.\n", value);
@@ -23,12 +23,12 @@ Node *new_node(int value) {
     return node;
 }
 
-Node *new_head(void) {
+Node* new_head(void) {
     return new_node(0);
 }
 
-void push_node(Node *head, int value) {
-    Node *node = new_node(value);
+void push_node(Node* head, int value) {
+    Node* node = new_node(value);
 
     if (head->next == NULL) {
         node->prev = head;
@@ -38,7 +38,7 @@ void push_node(Node *head, int value) {
     }
 }
 
-void pop_node(Node *head) {
+void pop_node(Node* head) {
     if (head->next == NULL) {
         if (head->prev == NULL)
             return;
@@ -50,11 +50,11 @@ void pop_node(Node *head) {
     }
 }
 
-void display_list(Node *head) {
+void display_list(Node* head) {
     if (head->next == NULL)
         return;
 
-    Node *node = head->next;
+    Node* node = head->next;
 
     while (node != NULL) {
         printf("%i ", node->value);
